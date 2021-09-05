@@ -39,10 +39,13 @@ app.use((error, req, res, next) => {
     res.status(error.statusCode).send(error.message);
 });
 
+//define port 
+var port = process.env.PORT || 5000;
+
 //connect mongodb and start server
 mongoose.connect("mongodb+srv://ayush:ayush@eventcalendar.3073r.mongodb.net/eventCalendar?retryWrites=true&w=majority").then(result => {
     console.log("Connected to mongo db")
-    app.listen(5000)
+    app.listen(port)
 }).catch(err => {
     console.log(err)
 });
